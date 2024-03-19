@@ -233,3 +233,94 @@
 * Фильтруем нажитием на "F4", затем вводим "sshd"
 ![filtered_sshd](Part9_screen/filtered_sshd.png)
 
+## Part10. Using the fdisk utility.
+
+* Запускаем команду "sudo fdisk -l"
+![command_fdisk_l](Part10_screen/command_fdisk_l.png)
+
+* Имя жёсткого диска.
+![name_ssd](Part10_screen/name_ssd.png)
+
+* Ёмкость жёсткого диска - "bytes", количество секторов - "sectors"
+![capacity_ssd](Part10_screen/capacity_ssd.png)
+
+* Команда "free -h" чтобы узнать размер подкачки.
+![size_swap](Part10_screen/size_swap.png)
+
+## Part11: Using the df utility.
+
+* Отображение команды "df"
+![command_df](Part11_screen/command_df)
+
+* Командой "df /" отображаем отчёт корневого раздела.
+![root_partition](Part11_screen/root_partition.png)
+
+* Размер раздела - "1K-blocks".
+* Размер занятого пространства - "Used".
+* Размер свободного пространства - "Available".
+* Процент использования - "Use%".
+* Единица измерения - Kb.
+
+
+* Вывод команды "df -Th":
+![command_df_Th](Part11_screen/command_df_Th.png)
+
+Вывод корневого раздела командой "df -Th /":
+![root_partition_df_Th](Part11_screen/root_partition_df_Th.png)
+
+* Размер раздела - "Size".
+* Размер занятого пространства - "Used".
+* Размер свободного пространства - "Avail".
+* Процент использовантия - "Use%".
+* Тип файловой системы для раздела - "Type".
+
+
+## Part12: Using the du utility
+
+
+* Вывод команды "du":
+![command_du](Part12_screen/command_du.png)
+
+* Командой sudo du -s -h /home && sudo du -s -h /var && sudo du -s -h /var/log выводим размер папок:
+![output_directs_size](Part12_screen/output_directs_size.png)
+
+* Командой "sudo du -sh /var/log/*" выводим размер каждого вложенного элемента "/var/log":
+![output_size_elements](Part12_screen/output_size_elements.png)
+
+
+## Part13: Installing and using the ncdu utility.
+
+* Устанавливаем "ncdu" командой "sudo apt install ncdu":
+
+* Командой "sudo ncdu /home, /var, /var/log" выводим:
+![output_dirrects_command_ncdu](Part13_screen/output_dirrects_command_ncdu.png)
+
+
+## Part 14. Working with system logs.
+
+* Открываем в vim папки dmesg, syslog, auth.log
+
+* Командой "last" выводим время последнего успешного входа, имя пользователя и метод входа:
+![command_last](Part14_screen/command_last.png)
+
+* Командой "service sshd restart" перезапускаем службу SShd:
+![sshd_restart](Part14_screen/sshd_restart.png)
+
+* Командой "sudo cat /var/log/syslog" выводим отчёт скриншота о перезапуске службы.
+![restart_report](Part14_screen/restart_report.png)
+
+## Part 15. Using the CRON job scheduler.
+
+* Устанавливаем "cron" командой "sudo apt install cron".
+
+* Для редактирования списка задач "sudo crontab -e"
+* В открывшийся файл добавляем команду для запуска uptime каждые 2 минуты, где "*/2" - 2 минуты:
+![uptime_2_minutes](Part15_screen/uptime_2_minutes.png)
+
+* Отображаем список текущих задач "crontab - l":
+![command_crontab_l](Part15_screen/command_crontab_l)
+
+* Удаляем все задачи с планировщика задач командой "crontab -r":
+![delete_tasks](Part15_screen/delete_tasks.png)
+
+
